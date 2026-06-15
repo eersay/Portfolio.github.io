@@ -1,311 +1,747 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portfolio" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/fa62c117c7.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="styles.css" />
-    <title>Bhagyasree Roy</title>    <!-- Change it your name  --> .
-  </head>
-  <body class="light" id="top">
-    <header class="header center">
-      <h3>
-        <a href="" class="link"  
-          >{BR}. <!--insert your initials here --></a
-        >
-      </h3> <!--use the linkedIn or any link in above href-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bhagyasree Roy – Data & Systems Analyst" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/fa62c117c7.js" crossorigin="anonymous"></script>
+  <title>Bhagyasree Roy</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0; padding: 0; border: 0; outline: 0;
+      box-sizing: border-box;
+      background-color: inherit; color: inherit;
+      font-family: inherit; font-size: inherit;
+    }
 
-      <nav class="nav center">
-        <ul class="nav__list center">
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#projects">Projects</a>
-          </li>
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#skills">Skills</a>
-          </li>
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#Internship">Internship</a>
-          </li>
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#Certificates">Certificates</a>
-          </li>
-          <!--   <li class="nav__list-item">
-            <a class="link link--nav" href="#Exp">Experience</a>
-          </li>-->
+    :root {
+      --bg:        #0A0F1E;
+      --bg-alt:    #111827;
+      --bg-card:   #141C2E;
+      --fg:        #CBD5E1;
+      --fg-muted:  #64748B;
+      --fg-bright: #E8EDF5;
+      --accent:    #00D4FF;
+      --accent-dim:#005F73;
+      --border:    rgba(0, 212, 255, 0.12);
+      --shadow:    0 4px 32px rgba(0,212,255,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+
+    /* ── SELECTION ── */
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--fg-bright);
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+
+    nav { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.8rem; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--fg-muted); letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .btn-theme {
+      background: none; border: none; cursor: pointer;
+      color: var(--fg-muted); font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .btn-theme:hover { color: var(--accent); }
+
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: var(--fg); font-size: 1.2rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 6rem 2rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .hero-content { max-width: 700px; }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--accent);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 24px; height: 1px; background: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 700; line-height: 1.08;
+      color: var(--fg-bright);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.3rem;
+    }
+    .hero h1 .cursor {
+      display: inline-block;
+      width: 3px; height: 0.85em;
+      background: var(--accent);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 1.1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .hero-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-weight: 400; color: var(--fg-muted);
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-desc {
+      font-size: 0.95rem; color: var(--fg);
+      max-width: 560px; margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-contact {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--fg-muted);
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 2.4rem;
+    }
+    .hero-contact a { transition: color 0.2s; }
+    .hero-contact a:hover { color: var(--accent); }
+
+    .hero-actions { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7em 1.6em;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--bg);
+      background: var(--accent);
+      border-radius: 4px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .social-links { display: flex; gap: 1rem; }
+    .social-links a {
+      color: var(--fg-muted); font-size: 1.3rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .social-links a:hover { color: var(--accent); transform: translateY(-2px); }
+
+    /* ── SECTION SHARED ── */
+    section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--accent);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .section-label::before { content:''; display:block; width:18px; height:1px; background:var(--accent); }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700; color: var(--fg-bright);
+      letter-spacing: -0.025em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── EXPERIENCE / TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1px 1fr;
+      gap: 0 2rem;
+      position: relative;
+    }
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--fg-muted);
+      padding-top: 0.25rem;
+      text-align: right; line-height: 1.4;
+    }
+    .timeline-line {
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .timeline-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      box-shadow: 0 0 8px var(--accent);
+      margin-top: 0.3rem;
+    }
+    .timeline-connector {
+      flex: 1; width: 1px; background: var(--border); margin-top: 4px;
+    }
+    .timeline-item:last-child .timeline-connector { background: transparent; }
+    .timeline-body { padding-bottom: 2.5rem; }
+    .timeline-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 1rem;
+      color: var(--fg-bright); margin-bottom: 0.15rem;
+    }
+    .timeline-company {
+      font-size: 0.82rem; color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .timeline-body ul { display: flex; flex-direction: column; gap: 0.4rem; }
+    .timeline-body li {
+      font-size: 0.87rem; color: var(--fg);
+      padding-left: 1rem; position: relative;
+    }
+    .timeline-body li::before {
+      content: '–'; position: absolute; left: 0; color: var(--fg-muted);
+    }
+
+    /* ── PROJECTS GRID ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .project-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .project-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 1.05rem; color: var(--fg-bright);
+    }
+    .project-links { display: flex; gap: 0.6rem; }
+    .project-links a {
+      color: var(--fg-muted); font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .project-links a:hover { color: var(--accent); }
+    .project-desc {
+      font-size: 0.84rem; color: var(--fg);
+      line-height: 1.65; flex: 1; margin-bottom: 1.2rem;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--accent);
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 3px;
+      padding: 0.2em 0.55em;
+    }
+
+    /* ── SKILLS ── */
+    .skills-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.5rem;
+    }
+    .skill-group-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--accent);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .skill-list {
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+    }
+    .skill-chip {
+      font-size: 0.78rem; color: var(--fg);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 3px;
+      padding: 0.25em 0.65em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-chip:hover { border-color: var(--accent); color: var(--fg-bright); }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.2rem 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent); }
+    .cert-icon { color: var(--accent); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+    .cert-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem; font-weight: 500; color: var(--fg-bright);
+      margin-bottom: 0.2rem;
+    }
+    .cert-issuer { font-size: 0.76rem; color: var(--fg-muted); }
+    .cert-link { margin-left: auto; color: var(--fg-muted); font-size: 0.85rem; transition: color 0.2s; flex-shrink:0; }
+    .cert-link:hover { color: var(--accent); }
+
+    /* ── LEADERSHIP ── */
+    .leadership-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .leadership-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem 1.4rem;
+      font-size: 0.86rem; color: var(--fg);
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .leadership-item::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+
+    /* ── EDUCATION ── */
+    .education-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.5rem 1.8rem;
+    }
+    .edu-degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 1rem; color: var(--fg-bright);
+      margin-bottom: 0.3rem;
+    }
+    .edu-school { font-size: 0.83rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .edu-detail { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--fg-muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem; color: var(--fg-muted);
+    }
+    .footer-inner span { color: var(--accent); }
+
+    /* ── SCROLL TOP ── */
+    .scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; width: 40px; height: 40px;
+      display: none; align-items: center; justify-content: center;
+      color: var(--fg-muted); font-size: 0.9rem;
+      cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    }
+    .scroll-top.visible { display: flex; }
+    .scroll-top:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem; gap: 1.2rem; z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: block; }
+      .timeline-item { grid-template-columns: 0 1px 1fr; }
+      .timeline-date { display: none; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header>
+    <div class="header-inner">
+      <div class="logo"><span>{</span>BR<span>}</span></div>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certs</a></li>
         </ul>
-
-        <button type="button" aria-label="toggle theme" class="btn btn--icon">
-          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
-        </button>
-
-        <button
-          type="button"
-          aria-label="toggle navigation"
-          class="btn btn--icon nav__hamburger"
-        >
-          <i aria-hidden="true" class="fas fa-bars"></i>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
         </button>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <!-- About -->
-      <div class="about center">
-        <h1>Hi, I am <span class="about__name">Bhagyasree Roy.</span></h1>
-        <h2 class="about__role">Aspiring CyberSecurity Analyst</h2>
-        <p class="about__desc"> <!-- Edit the About make sure you add your degree!-->
-          Passionate and driven computer enthusiast with a strong interest in cybersecurity. My cheerful and resilient personality thrives in
-public settings, showcasing a natural ability to connect with people.I am currently a final year BCA student @CHRIST University.
-        </p> <!-- about you -->
-        <br>
-        <a href="mailto:bhagyasree.roy@bca.christuniversity.in">Mail: bhagyasree.roy@bca.christuniversity.in </a><p> Contact: +91 8777696080</p>  <!--Change it to your mail id and contact no-->
-      </br>
-      
-
-        <div class="about__contact center">
-          <a href="https://drive.google.com/file/d/1Xfo4oftgtdMWwUIv-gEwff8ZF4HeTSxo/view?usp=sharing" target="_blank"  > <!-- drive link for resume-->
-            <span class="btn btn--outline">Resume</span> 
+  <main>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Data &amp; Systems Analyst</p>
+        <h1>Bhagyasree Roy<span class="cursor"></span></h1>
+        <p class="hero-role">Turning complex data into clear decisions.</p>
+        <p class="hero-desc">
+          Computer Applications graduate (MCA, CHRIST University) with hands-on experience
+          in data analysis, system design, and full-stack development.
+          Proficient in Python, SQL, and BI tooling — from building end-to-end pipelines
+          to interactive analytics dashboards.
+        </p>
+        <div class="hero-contact">
+          <a href="mailto:bhagyasree.roy04@gmail.com"><i class="fas fa-envelope" style="margin-right:0.35em"></i>bhagyasree.roy04@gmail.com</a>
+          <span><i class="fas fa-phone" style="margin-right:0.35em"></i>+91 877-769-6080</span>
+          <span><i class="fas fa-map-marker-alt" style="margin-right:0.35em"></i>Bangalore, India</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://drive.google.com/file/d/1Xfo4oftgtdMWwUIv-gEwff8ZF4HeTSxo/view?usp=sharing" target="_blank">
+            <i class="fas fa-download"></i> Resume
           </a>
-
-          <a
-            href="https://github.com/eersay" target="_blank"
-            aria-label="github"
-            class="link link--icon"
-          >
-            <i aria-hidden="true" class="fab fa-github"></i>
-          </a> <!-- Github profile Link-->
-
-          <a
-            href="https://www.linkedin.com/in/bhagyasree-roy-360a1a244/" target="_blank"  
-            aria-label="linkedin"
-            class="link link--icon"
-          > 
-            <i aria-hidden="true" class="fab fa-linkedin"></i>
-          </a> <!-- LinledIn profile Link-->
-        </div>
-      </div>
-
-      <!-- Projects -->
-      <section id="projects" class="section projects">
-        <h2 class="section__title">Projects</h2>
-
-        <div class="projects__grid">
-          <div class="project">
-            <h3>HEAL</h3> <!--Peoject Title -->
-            <p class="project__description">
-              The platform offers intuitive user interfaces, personalized mental health tracking tools, and
-secure communication channels for users to engage with professionals confidentially.
-            </p> <!--Project description-->
-            <ul class="project__stack">
-              <li class="project__stack-item">HTML</li>
-              <li class="project__stack-item">CSS</li>
-              <li class="project__stack-item">JavaScript</li>
-              <li class="project__stack-item">JSON</li>
-              <li class="project__stack-item">PHP</li>
-            </ul>
-
-            <a
-              href="https://github.com/neha-n-git/HEAL" target="_blank"
-              aria-label="source code"
-              class="link link--icon"
-            >  <!--Project link-->
-
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
-            <a
-              href="https://github.com/neha-n-git/HEAL"
-              aria-label="live preview"
-              class="link link--icon"
-            > <!--Project demo or git link-->
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-           <div class="project">
-            <h3>CHRISTITE</h3> <!--Peoject Title -->
-            <p class="project__description">
-              A comprehensive Student App using React Native with Expo for the frontend and Appwrite as the
-backend. The app features a secure login module, dynamic homepage, timetable, and real-time announcements, tailored for
-university students. Integrated cloud functionalities and notifications for seamless updates.
-            </p> <!--Project description-->
-            <ul class="project__stack">
-              <li class="project__stack-item">React</li>
-              <li class="project__stack-item">Appwrite</li>
-              <li class="project__stack-item">Expo</li>
-              <li class="project__stack-item">Node.js</li>
-            </ul>
-
-            <a
-              href="https://github.com/eersay/Christite" target="_blank"
-              aria-label="source code"
-              class="link link--icon"
-            >  <!--Project link-->
-
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
-            <a
-              href="https://github.com/eersay/Christite"
-              aria-label="live preview"
-              class="link link--icon"
-            > <!--Project demo or git link-->
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
+          <div class="social-links">
+            <a href="https://github.com/Bhagyasreeroy" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/bhagyasree-roy" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
-      </section>
-
-      <section id="Internship" class="section Internship" id="Internship">
-        <h2 class="section__title">Internships</h2>
-
-      <div class="project">
-        <h3>CHRIST Consulting</h3>
-        <p class="project__description">
-          Engaged with clients to understand their vision, goals, and requirements for each project, ensuring a clear and shared
-understanding of design objectives. Coordinated project timelines, milestones, and deliverables, ensuring that all projects were
-completed on time and within budget. Conducted thorough reviews of all design work to maintain high standards of quality and
-consistency, ensuring that all deliverables met or exceeded client expectations.
-        </p>
-        <ul class="project__stack">
-          <li class="project__stack-item">JULY 2023 - JULY 2024</li>
-        </ul>
-      </div>
-      <div class="project">
-        <h3>UABLE</h3>
-        <p class="project__description">
-          Organized and facilitated online events, webinars, and virtual meetings, ensuring seamless execution and high participant
-engagement. Oversaw the operations and activities of various clubs, including planning events, coordinating with members, and
-managing budgets to enhance club growth and member satisfaction. Collected and analyzed feedback from participants to
-continuously improve the quality and impact of events and club offerings. Worked with various stakeholders, including club
-members, event speakers, and sponsors, to ensure successful planning and execution of events.
-        </p>
-        <ul class="project__stack">
-          <li class="project__stack-item">NOVEMBER 2021 - JANUARY 2022</li>
-        </ul>
       </div>
     </div>
-  </section>
 
-  <section id="Certificates" class="section Internship" id="Certificates">
-    <h2 class="section__title">Certificates</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <p class="section-label">Career</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
 
-  <div class="project">
-    <h3>Google Cybersecurity (Coursera)</h3>
-    <ul class="project__stack">
-      <li class="project__stack-item">JUNE 23, 2023</li>
-    </ul>
-    <a
-              href="https://coursera.org/verify/professional-cert/LFYRDJ9SJRT8"
-              aria-label="live preview"
-              class="link link--icon"
-            > <!--Project demo or git link-->
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
-  </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Nov 2024 –<br>Mar 2025</div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-role">Junior Software Developer Intern</div>
+            <div class="timeline-company">IOLITE Technologies (P) Ltd.</div>
+            <ul>
+              <li>Contributed to architecture and feature development of an online degree platform, translating business needs into technical specifications.</li>
+              <li>Conducted end-to-end testing and performance optimization, resolving functional defects to improve system reliability.</li>
+              <li>Collaborated with cross-functional teams (design, content, QA) to ensure smooth data integration and consistent workflows.</li>
+            </ul>
+          </div>
+        </div>
 
-  <div class="project">
-    <h3>Public Speaking (IIT Madras-SWAYAM)</h3>
-    <ul class="project__stack">
-      <li class="project__stack-item">JUL-OCT 2023</li>
-    </ul>
-    <a
-              href="https://nptel.ac.in/noc/E_Certificate/NPTEL23HS151S4323503920122860"
-              aria-label="live preview"
-              class="link link--icon"
-            > <!--Project demo or git link-->
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
-  </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2023 –<br>Jul 2024</div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-role">Deputy Creative Head</div>
+            <div class="timeline-company">Christ Consulting, Bangalore</div>
+            <ul>
+              <li>Managed project timelines and deliverables for multiple concurrent client engagements, consistently meeting deadlines.</li>
+              <li>Analyzed client requirements and translated them into structured project briefs, improving team alignment.</li>
+            </ul>
+          </div>
+        </div>
 
-  <div class="project">
-    <h3>Web Development (Udemy)</h3>
-    <ul class="project__stack">
-      <li class="project__stack-item">APRIL 18, 2024</li>
-    </ul>
-    <a
-              href="ude.my/UC-fde1aa10-0b85-48ad-aae2-dfb92e958aaf"
-              aria-label="live preview"
-              class="link link--icon"
-            > <!--Project demo or git link-->
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
-  </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Nov 2021 –<br>Jan 2022</div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-role">Club Manager</div>
+            <div class="timeline-company">UABLE (Remote)</div>
+            <ul>
+              <li>Collected and analyzed participant feedback to drive iterative improvements in event quality and engagement.</li>
+              <li>Coordinated 10+ virtual events, managing logistics, budgets, and multi-stakeholder communications.</li>
+            </ul>
+          </div>
+        </div>
 
-  <div class="project">
-    <h3>AWS Cloud Foundations (AWS Academy)</h3>
-    <ul class="project__stack">
-      <li class="project__stack-item">MAY 30, 2024</li>
-    </ul>
-    <a
-              href="https://www.credly.com/go/NdAI94rU"
-              aria-label="live preview"
-              class="link link--icon"
-            > <!--Project demo or git link-->
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
-  </div>
+      </div>
+    </section>
 
-  <div class="project">
-    <h3>Brand Management</h3>
-    <ul class="project__stack">
-      <li class="project__stack-item">CHRIST University</li>
-    </ul>
-  </div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <p class="section-label">Work</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
 
-  <div class="project">
-    <h3>Digital Marketing</h3>
-    <ul class="project__stack">
-      <li class="project__stack-item">CHRIST University</li>
-    </ul>
-  </div>
-  
-</div>
-</section>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Procto</div>
+            <div class="project-links">
+              <a href="https://github.com/eersay/Procto" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">AI-powered proctoring system with React/Vite frontend, Express REST API, and PostgreSQL data layer. Containerized via Docker Compose. Shared TypeScript schemas enforce data consistency across system boundaries.</p>
+          <div class="project-tags">
+            <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+          </div>
+        </div>
 
-      
-      <!-- Skills -->
-      <section class="section skills" id="skills">
-        <h2 class="section__title">Skills</h2>
-        <ul class="skills__list">
-          <li class="skills__list-item btn btn--plain">HTML</li>                        <!--You can fill in the elective course and you can remove extras-->
-          <li class="skills__list-item btn btn--plain">CSS</li>
-          <li class="skills__list-item btn btn--plain">JavaScript</li>
-          <li class="skills__list-item btn btn--plain">React</li>
-          <li class="skills__list-item btn btn--plain">PHP</li>
-          <li class="skills__list-item btn btn--plain">SQL</li> 
-          <li class="skills__list-item btn btn--plain">Python</li>
-          <li class="skills__list-item btn btn--plain">C</li>
-          <li class="skills__list-item btn btn--plain">Java</li>
-          <li class="skills__list-item btn btn--plain">Machine Learning</li> 
-          <li class="skills__list-item btn btn--plain">Android Development</li>  
-        </ul>
-      </section>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Silver Analytics Dashboard</div>
+            <div class="project-links">
+              <a href="https://github.com/Bhagyasreeroy/Silver-Analytics-Dashboard" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">Interactive analytics dashboard visualizing historical silver price trends and state-wise purchase data across India using geospatial shapefiles. Time-series processing and geographic data joins enable multi-dimensional commodity analysis.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Plotly/Dash</span><span class="tag">Pandas</span><span class="tag">GeoPandas</span>
+          </div>
+        </div>
 
-    <footer class="footer">
-      <a
-        href="" 
-        class="link footer__link"
-      >  
-        Created By Bhagyasree Roy!
-      </a>
-    </footer>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Consumer Behaviour Analysis</div>
+            <div class="project-links">
+              <a href="https://github.com/Bhagyasreeroy/shopping-behaviour" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">Analyzed a structured consumer dataset to uncover purchasing patterns and segment customer behavior. Applied EDA and visualization techniques to present stakeholder-ready retail insights.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+          </div>
+        </div>
 
-    <div class="scroll-container">
-    <div class="scroll-top">
-      <a aria-label="Scroll up" href="#top">
-        <i aria-hidden="true" class="fas fa-arrow-up"></i>
-      </a>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">HEAL</div>
+            <div class="project-links">
+              <a href="https://github.com/neha-n-git/HEAL" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">Mental health web platform with personalized health tracking tools and secure communication channels for users and professionals. Full-stack implementation from UI to backend.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">JSON</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">Christite</div>
+            <div class="project-links">
+              <a href="https://github.com/eersay/Christite" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">Comprehensive student mobile app for CHRIST University with secure authentication, timetable management, real-time announcements, and push notifications via cloud backend.</p>
+          <div class="project-tags">
+            <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Appwrite</span><span class="tag">Node.js</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <p class="section-label">Stack</p>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-groups">
+        <div class="skill-group">
+          <div class="skill-group-title">Languages</div>
+          <div class="skill-list">
+            <span class="skill-chip">Python</span><span class="skill-chip">SQL</span><span class="skill-chip">TypeScript</span><span class="skill-chip">JavaScript</span><span class="skill-chip">Java</span><span class="skill-chip">C</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Data &amp; Analytics</div>
+          <div class="skill-list">
+            <span class="skill-chip">Pandas</span><span class="skill-chip">NumPy</span><span class="skill-chip">Scikit-learn</span><span class="skill-chip">Matplotlib</span><span class="skill-chip">Seaborn</span><span class="skill-chip">GeoPandas</span><span class="skill-chip">Power BI</span><span class="skill-chip">WEKA</span><span class="skill-chip">Excel</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Databases</div>
+          <div class="skill-list">
+            <span class="skill-chip">PostgreSQL</span><span class="skill-chip">MySQL</span><span class="skill-chip">Appwrite</span><span class="skill-chip">Query Optimization</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Development</div>
+          <div class="skill-list">
+            <span class="skill-chip">React</span><span class="skill-chip">React Native</span><span class="skill-chip">Express.js</span><span class="skill-chip">PHP</span><span class="skill-chip">HTML/CSS</span><span class="skill-chip">Android Studio</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">DevOps &amp; Tools</div>
+          <div class="skill-list">
+            <span class="skill-chip">Docker</span><span class="skill-chip">Git/GitHub</span><span class="skill-chip">Google Colab</span><span class="skill-chip">Jupyter</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Concepts</div>
+          <div class="skill-list">
+            <span class="skill-chip">EDA</span><span class="skill-chip">Data Visualization</span><span class="skill-chip">System Design</span><span class="skill-chip">REST APIs</span><span class="skill-chip">Agile</span><span class="skill-chip">Requirements Analysis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label">Academic</p>
+      <h2 class="section-title">Education</h2>
+      <div class="education-cards">
+        <div class="edu-card">
+          <div class="edu-degree">Master of Computer Applications (MCA)</div>
+          <div class="edu-school">CHRIST University, Bangalore</div>
+          <div class="edu-detail">Jun 2025 – Present · Ongoing</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">CHRIST University, Bangalore</div>
+          <div class="edu-detail">Jul 2022 – Apr 2025 · CGPA 9.52 / 10 · 83%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <p class="section-label">Credentials</p>
+      <h2 class="section-title">Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <div class="cert-name">AWS Cloud Foundations</div>
+            <div class="cert-issuer">AWS Academy · May 2024</div>
+          </div>
+          <a class="cert-link" href="https://www.credly.com/go/NdAI94rU" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <div class="cert-name">Google Cybersecurity</div>
+            <div class="cert-issuer">Coursera · Jun 2023</div>
+          </div>
+          <a class="cert-link" href="https://coursera.org/verify/professional-cert/LFYRDJ9SJRT8" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <div class="cert-name">Web Development</div>
+            <div class="cert-issuer">Udemy · Apr 2024</div>
+          </div>
+          <a class="cert-link" href="https://ude.my/UC-fde1aa10-0b85-48ad-aae2-dfb92e958aaf" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <div class="cert-name">Public Speaking</div>
+            <div class="cert-issuer">IIT Madras – SWAYAM · Jul–Oct 2023</div>
+          </div>
+          <a class="cert-link" href="https://nptel.ac.in/noc/E_Certificate/NPTEL23HS151S4323503920122860" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <div class="cert-name">Digital Marketing</div>
+            <div class="cert-issuer">CHRIST University</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <div class="cert-name">Brand Management</div>
+            <div class="cert-issuer">CHRIST University</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership">
+      <p class="section-label">Community</p>
+      <h2 class="section-title">Leadership &amp; Activities</h2>
+      <div class="leadership-list">
+        <div class="leadership-item">SAMAGRA (CS Association) – Head of Creatives</div>
+        <div class="leadership-item">WIST Women Coding Club – Core Member</div>
+        <div class="leadership-item">SDG Cell – Student Council</div>
+        <div class="leadership-item">SWO Art Cultural Team</div>
+        <div class="leadership-item">🏆 First Runner-Up, Open Weaver Makeathon</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      Designed &amp; built by <span>Bhagyasree Roy</span> · 2025
     </div>
-    </div>
+  </footer>
 
-    <script src="./script.js"></script>
-  </body>
+  <a href="#top" class="scroll-top" id="scroll-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    ham.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Scroll top visibility
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+  </script>
+</body>
 </html>
