@@ -3,7 +3,7 @@
 const DATA = {
   profile: {
     name: "Bhagyasree Roy",
-    role: "Data & Systems Analyst",
+    role: "Software Engineer",
     tagline: "Turning complex data into clear decisions.",
     bio: "Computer Applications graduate (MCA, CHRIST University) with hands-on experience in data analysis, system design, and full-stack development. Proficient in Python, SQL, and BI tooling — from building end-to-end pipelines to interactive analytics dashboards.",
     email: "bhagyasree.roy04@gmail.com",
