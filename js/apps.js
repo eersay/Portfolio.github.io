@@ -26,7 +26,7 @@ const APPS = {
         <div class="home-actions">
           <a class="btn-primary" href="${p.resumeUrl}" target="_blank" rel="noopener"><i class="fas fa-download"></i> Resume</a>
           <div class="social-links">
-            <a href="${p.github}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            ${p.githubs.map((g) => `<a href="${g.url}" target="_blank" rel="noopener" aria-label="${esc(g.label)}"><i class="fab fa-github"></i></a>`).join("")}
             <a href="${p.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
@@ -194,7 +194,7 @@ const APPS = {
           <a class="contact-row" href="mailto:${p.email}"><span class="glyph"><i class="fas fa-envelope"></i></span>${esc(p.email)}</a>
           <div class="contact-row"><span class="glyph"><i class="fas fa-phone"></i></span>${esc(p.phone)}</div>
           <div class="contact-row"><span class="glyph"><i class="fas fa-map-marker-alt"></i></span>${esc(p.location)}</div>
-          <a class="contact-row" href="${p.github}" target="_blank" rel="noopener"><span class="glyph"><i class="fab fa-github"></i></span>GitHub</a>
+          ${p.githubs.map((g) => `<a class="contact-row" href="${g.url}" target="_blank" rel="noopener"><span class="glyph"><i class="fab fa-github"></i></span>${esc(g.label)}</a>`).join("")}
           <a class="contact-row" href="${p.linkedin}" target="_blank" rel="noopener"><span class="glyph"><i class="fab fa-linkedin"></i></span>LinkedIn</a>
         </div>
       `;

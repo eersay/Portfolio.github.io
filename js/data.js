@@ -10,7 +10,10 @@ const DATA = {
     phone: "+91 877-769-6080",
     location: "Bangalore, India",
     resumeUrl: "assets/resume/Bhagyasree_Roy_Resume.pdf",
-    github: "https://github.com/Bhagyasreeroy",
+    githubs: [
+      { label: "GitHub", url: "https://github.com/Bhagyasreeroy" },
+      { label: "GitHub (eersay)", url: "https://github.com/eersay" },
+    ],
     linkedin: "https://www.linkedin.com/in/bhagyasree-roy",
   },
 
